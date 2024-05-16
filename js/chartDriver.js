@@ -10,19 +10,21 @@ const whoIsFaster = () => {
 			console.log(data)
 			const fetchedData = data.data
 
-			for (let i = 0; i < 5; i++) {
+			for (let i = 0; i < 10; i++) {
 				const item = fetchedData[i]
 				console.log(`Line Number: ${item.line_number}`)
 				console.log(`Direction: ${item.direction}`)
 				console.log(`punctuality: ${item.punctuality}`)
-				console.log(`Longitude: ${item.longitude}`)
+				console.log(`velocity: ${item.velocity}`)
 				console.log('---')
 			}
 
-			const labels = fetchedData.map(item => item.line_number)
-			const positiveValues = fetchedData.slice(0, 5).map(item => item.velocity) // Pierwsze 5 wartości dodatnich
-			const negativeValues = fetchedData.slice(5, 10).map(item => -item.velocity) // Kolejne 5 wartości ujemnych
+			const labels = fetchedData.slice(0, 10).map(item => item.line_number)
+			const positiveValues = fetchedData.slice(0, 5).map(item => item.punctuality) // Pierwsze 5 wartości dodatnich
+			const negativeValues = fetchedData.slice(5, 10).map(item => item.punctuality) // Kolejne 5 wartości ujemnych
 
+            console.log(fetchedData.map(item => item.punctuality));
+            console.log(fetchedData.slice(5, 10).map(item => item.punctuality));
 
             const ctx = document.getElementById('driverChart').getContext('2d')
             const myChart = new Chart(ctx, {
@@ -49,7 +51,7 @@ const whoIsFaster = () => {
                         },
                         {
                             label: 'Nie punktualni kierowcy',
-                            data: [0, 0, 0, 0, -10, -20, -30, -40, -50],
+                            data: [0, 0, 0, 0, negativeValues],
                             borderColor: '#FF6384',
                             backgroundColor: '#FFB1C1',
                         },
