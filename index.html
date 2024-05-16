@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SzybkiSzofer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap"
+        rel="stylesheet">
+    <script src="https://kit.fontawesome.com/c8836c9201.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <h1>SzybkiSzofer</h1>
+        <p>Sprawdź najszybszych kierowców w Szczecinie!</p>
+
+        <div class="app-body">
+
+            <div class="fastest-driver">
+                <p><i class="fa-sharp fa-solid fa-person"></i></p>
+                <p class="title">Super kierowcy</p>
+                <p>Sprawdz kto jeździ dzisiaj najlepiej!</p>
+            </div>
+            <div class="fastest-driver">
+                <p><i class="fa-sharp fa-solid fa-person"></i></p>
+                <p class="title">Super kierowcy</p>
+                <p>Sprawdz kto jeździ dzisiaj najlepiej!</p>
+            </div>
+            <div class="fastest-driver">
+                <p><i class="fa-sharp fa-solid fa-person"></i></p>
+                <p class="title">Super kierowcy</p>
+                <p>Sprawdz kto jeździ dzisiaj najlepiej!</p>
+            </div>
+
+            
+            
+            <div class="add-driver-panel">
+                <h2 class="title">Najszybszi i najwolniejszy kierowcy:</h2>
+                
+                <div class="driverChartcontainer">
+                    <canvas id="driverChart"></canvas>
+                </div>
+                
+                <button class="cancel"><i class="fas fa-window-close"></i> Wyjdź</button>
+            </div>
+
+        </div>
+
+    </div>
+    <p class="rate-info"></p>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="./js/chartDriver.js"></script>
+    <script src="./js/main.js"></script>
+</body>
+
+</html>
