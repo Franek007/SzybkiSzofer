@@ -8,76 +8,60 @@ const whoIsFaster = () => {
 		.then(res => res.json())
 		.then(data => {
 			console.log(data)
-			const fetchedData = data.data
+			const fetchedData = data.data.sort((a,b) => b.punctuality - a.punctuality)
 
-			for (let i = 0; i < 10; i++) {
-				const item = fetchedData[i]
-				console.log(`Line Number: ${item.line_number}`)
-				console.log(`Direction: ${item.direction}`)
-				console.log(`punctuality: ${item.punctuality}`)
-				console.log(`velocity: ${item.velocity}`)
-				console.log('---')
-			}
+			const negativeValues = fetchedData.slice(-5)
+			const positiveValues = fetchedData.slice(0, 5) 
+            
+            const topFivePositiveNumbers = positiveValues.map(item => item.punctuality)
+            const topFiveNegativeNumbers = negativeValues.map(item => item.punctuality)
 
-			const labels = fetchedData.slice(0, 10).map(item => item.line_number)
-			const positiveValues = fetchedData.slice(0, 5).map(item => item.punctuality) // Pierwsze 5 wartości dodatnich
-			const negativeValues = fetchedData.slice(5, 10).map(item => item.punctuality) // Kolejne 5 wartości ujemnych
+            const labels = [...positiveValues, ...negativeValues].map(item => item.line_number)
 
-            console.log(fetchedData.map(item => item.punctuality));
-            console.log(fetchedData.slice(5, 10).map(item => item.punctuality));
+			// Potrzebuje dane posortowal od najwiekszego do najmniejszego i wtedy slice 5 najwiekszych i najmniejszych
 
-            const ctx = document.getElementById('driverChart').getContext('2d')
-            const myChart = new Chart(ctx, {
-                type: 'bar',
-                data: {
-                    labels: [
-                        'Label 1',
-                        'Label 2',
-                        'Label 3',
-                        'Label 4',
-                        'Label 5',
-                        'Label 6',
-                        'Label 7',
-                        'Label 8',
-                        'Label 9',
-                        'Label 10',
-                    ],
-                    datasets: [
-                        {
-                            label: 'Punktualni kierowcy',
-                            data: positiveValues,
-                            borderColor: '#36A2EB',
-                            backgroundColor: '#9BD0F5',
-                        },
-                        {
-                            label: 'Nie punktualni kierowcy',
-                            data: [0, 0, 0, 0, negativeValues],
-                            borderColor: '#FF6384',
-                            backgroundColor: '#FFB1C1',
-                        },
-                    ],
-                },
-                options: {
-                    responsive: true,
-                    plugins: {
-                        legend: {
-                            position: 'top',
-                        },
-                        title: {
-                            display: true,
-                            text: 'Najszybszi i najwolniejszy kierowcy:',
-                        },
-                    },
-                    scales: {
-                        y: {
-                            beginAtZero: true,
-                        },
-                    },
-                },
-            })
+			const ctx = document.getElementById('driverChart').getContext('2d')
+			const myChart = new Chart(ctx, {
+				type: 'bar',
+				data: {
+					labels: labels,
+					datasets: [
+						{
+							label: 'Przed czasem (minut)',
+							data: topFivePositiveNumbers,
+							borderColor: '#36A2EB',
+							backgroundColor: '#056517',
+						},
+						{
+							label: 'Spóżniony (minut)',
+							data: [...Array(5).fill(0), ...topFiveNegativeNumbers.map(val => -val)],
+							borderColor: '#FF6384',
+							backgroundColor: '#bf1029',
+						},
+					],
+				},
+				options: {
+					responsive: true,
+					plugins: {
+						legend: {
+							position: 'top',
+						},
+						title: {
+							display: true,
+							text: 'Najszybszi i najwolniejszy kierowcy:',
+						},
+					},
+					scales: {
+						x: {
+							stacked: true,
+						},
+
+						y: {
+							beginAtZero: true,
+						},
+					},
+				},
+			})
 		})
 		.catch(error => console.error('Coś nie tak Error:', error))
 }
-
-whoIsFaster()
-
