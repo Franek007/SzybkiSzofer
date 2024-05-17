@@ -26,7 +26,7 @@ body {
 
 .wrapper h1 {
 	font-size: 60px;
-    background-image: url(../);
+	background-image: url(../);
 }
 
 .wrapper p {
@@ -40,15 +40,14 @@ body {
 	margin-top: 40px;
 }
 
-.fastest-driver i {
-    margin-bottom: 20px;
-    font-size: 200px;
-    transition: color .3s;
-    cursor: pointer;
+.section i {
+	font-size: 200px;
+	transition: color 0.3s;
+	cursor: pointer;
 }
 
-.fastest-driver {
-    display: flex;
+.section {
+	display: flex;
 	align-items: center;
 	justify-content: space-around;
 	flex-direction: column;
@@ -56,22 +55,22 @@ body {
 	border-radius: 10px;
 }
 
-.fastest-driver i:hover {
-    color: #969da5b4;
+.section i:hover {
+	color: #969da5b4;
 }
 
-.fastest-driver p {
-    margin-bottom: 10px;
-    font-size: 18px;
+.section p {
+	margin-bottom: 10px;
+	font-size: 18px;
 }
 
-.fastest-driver .title {
-    margin-bottom: 10px;
-    font-size: 24px;
+.section .title {
+	margin-bottom: 10px;
+	font-size: 24px;
 }
 
 .wrapper .rate-info {
-    margin-top: 30px;
+	margin-top: 30px;
 	margin-bottom: 0;
 }
 
@@ -91,7 +90,11 @@ body {
 	background-image: linear-gradient(315deg, #4c4177 0%, #2a5370 74%);
 }
 
-.add-driver-panel .driverChartcontainer{
+.add-driver-panel h2 {
+	margin-bottom: 20px;
+}
+
+.add-driver-panel .driverChartcontainer {
 	width: 800px;
 	height: 400px;
 	background-color: #fff;
@@ -99,22 +102,35 @@ body {
 }
 
 .cancel {
-    margin: 0 30px;
+	margin: 60px;
 	padding: 15px 40px;
 	font-size: 18px;
 	color: #fff;
 	border: 1px solid #fff;
 	background: none;
+	cursor: pointer;
 	transition: background-color 0.3s;
 }
 
 .cancel:hover {
-    background-color: rgb(25, 27, 51);
+	background-color: rgb(25, 27, 51);
 }
 
+/* Modal speedMeasure */
 
-
-
+.add-speedMeasure-panel {
+	display: none;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	color: #fff;
+	background-image: linear-gradient(315deg, #4c4177 0%, #2a5370 74%);
+}
 
 /* -------------------------------- */
 

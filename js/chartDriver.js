@@ -7,61 +7,69 @@ const whoIsFaster = () => {
 	fetch(URL)
 		.then(res => res.json())
 		.then(data => {
-			console.log(data)
-			const fetchedData = data.data.sort((a,b) => b.punctuality - a.punctuality)
+			const fastestDriver = () => {
+				console.log(data)
+				const fetchedData = data.data.sort((a, b) => b.punctuality - a.punctuality)
 
-			const negativeValues = fetchedData.slice(-5)
-			const positiveValues = fetchedData.slice(0, 5) 
-            
-            const topFivePositiveNumbers = positiveValues.map(item => item.punctuality)
-            const topFiveNegativeNumbers = negativeValues.map(item => item.punctuality)
+				const negativeValues = fetchedData.slice(-5)
+				const positiveValues = fetchedData.slice(0, 5)
 
-            const labels = [...positiveValues, ...negativeValues].map(item => item.line_number)
+				const topFivePositiveNumbers = positiveValues.map(item => item.punctuality)
+				const topFiveNegativeNumbers = negativeValues.map(item => item.punctuality)
 
-			// Potrzebuje dane posortowal od najwiekszego do najmniejszego i wtedy slice 5 najwiekszych i najmniejszych
+				const labels = [...positiveValues, ...negativeValues].map(item => item.line_number)
 
-			const ctx = document.getElementById('driverChart').getContext('2d')
-			const myChart = new Chart(ctx, {
-				type: 'bar',
-				data: {
-					labels: labels,
-					datasets: [
-						{
-							label: 'Przed czasem (minut)',
-							data: topFivePositiveNumbers,
-							borderColor: '#36A2EB',
-							backgroundColor: '#056517',
+				// Potrzebuje dane posortowal od najwiekszego do najmniejszego i wtedy slice 5 najwiekszych i najmniejszych
+
+				const ctx = document.getElementById('driverChart').getContext('2d')
+				const myChart = new Chart(ctx, {
+					type: 'bar',
+					data: {
+						labels: labels,
+						datasets: [
+							{
+								label: 'Przed czasem (minut)',
+								data: topFivePositiveNumbers,
+								borderColor: '#36A2EB',
+								backgroundColor: '#056517',
+							},
+							{
+								label: 'Spóżniony (minut)',
+								data: [...Array(5).fill(0), ...topFiveNegativeNumbers.map(val => -val)],
+								borderColor: '#FF6384',
+								backgroundColor: '#bf1029',
+							},
+						],
+					},
+					options: {
+						responsive: true,
+						plugins: {
+							legend: {
+								position: 'top',
+							},
+							bottomText: {
+								display: false,
+								text: 'Najszybszi i najwolniejszy kierowcy:',
+							},
 						},
-						{
-							label: 'Spóżniony (minut)',
-							data: [...Array(5).fill(0), ...topFiveNegativeNumbers.map(val => -val)],
-							borderColor: '#FF6384',
-							backgroundColor: '#bf1029',
-						},
-					],
-				},
-				options: {
-					responsive: true,
-					plugins: {
-						legend: {
-							position: 'top',
-						},
-						title: {
-							display: true,
-							text: 'Najszybszi i najwolniejszy kierowcy:',
+						scales: {
+							x: {
+								title: {
+									display: true,
+									text: 'Numer lini:',
+								},
+								stacked: true,
+							},
+
+							y: {
+								beginAtZero: true,
+							},
 						},
 					},
-					scales: {
-						x: {
-							stacked: true,
-						},
-
-						y: {
-							beginAtZero: true,
-						},
-					},
-				},
-			})
+				})
+			}
+			fastestDriver()
+			const speedMeasure = () => {}
 		})
 		.catch(error => console.error('Coś nie tak Error:', error))
 }
