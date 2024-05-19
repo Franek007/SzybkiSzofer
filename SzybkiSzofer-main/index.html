@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SzybkiSzofer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap"
+        rel="stylesheet">
+    <script src="https://kit.fontawesome.com/c8836c9201.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.Default.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <h1>SzybkiSzofer</h1>
+        <p>Sprawdź najszybszych kierowców w Szczecinie!</p>
+
+        <div class="app-body">
+
+            <div class="map section">
+                <p><i class="fa-solid fa-map-location-dot"></i></p>
+                <p class="title">Mapa kierowców</p>
+                <p>Sprawdz kto jeździ dzisiaj najlepiej!</p>
+            </div>
+            <div class="fastest-driver section">
+                <p><i class="fa-solid fa-car-side"></i></p>
+                <p class="title">Super kierowcy</p>
+                <p>Sprawdz kto jeździ dzisiaj najlepiej!</p>
+            </div>
+            <div class="speed-measure section">
+                <p><i class="fa-solid fa-gauge"></i></p>
+                <p class="title">Najszybsi kierowcy</p>
+                <p>Sprawdz kto jeździ najszybciej!</p>
+            </div>
+
+
+
+            <div class="add-driver-panel panel-section">
+                <h2 class="title">Najszybszi i najbardziej spoźnialscy kierowcy:</h2>
+
+                <div class="driverChartcontainer">
+                    <canvas id="driverChart1"></canvas>
+                </div>
+
+
+                <button class="cancel"><i class="fas fa-window-close"></i> Wyjdź</button>
+            </div>
+
+            <div class="add-speedMeasure-panel panel-section">
+                <h2 class="title">Linie z aktaulanie najszybą prędkością:</h2>
+
+                <div class="speedChartcontainer">
+                    <canvas id="speedChart"></canvas>
+                </div>
+
+                <button class="cancel2 cancel"><i class="fas fa-window-close"></i> Wyjdź</button>
+            </div>
+
+            <div class="add-Map-panel panel-section">
+                <h2 class="title">Linie z aktaulanie najszybą prędkością:</h2>
+                <div class="map-container" id="map"></div>
+                <button class="cancel3 cancel"><i class="fas fa-window-close"></i> Wyjdź</button>
+            </div>
+
+        </div>
+
+    </div>
+    <p class="rate-info"></p>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
+    <script src="./js/chartDriver.js"></script>
+    <script src="./js/chartSpeed.js"></script>
+    <script src="./js/main.js"></script>
+</body>
+
+</html>
