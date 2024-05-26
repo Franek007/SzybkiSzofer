@@ -76,7 +76,7 @@ body {
 
 /* Modal faster driver */
 
-.add-driver-panel {
+.add-driver-panel{
 	display: none;
 	justify-content: center;
 	align-items: center;
@@ -90,15 +90,28 @@ body {
 	background-image: linear-gradient(315deg, #4c4177 0%, #2a5370 74%);
 }
 
+.container2{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+}
+
 .add-driver-panel h2 {
 	margin-bottom: 20px;
 }
 
 .add-driver-panel .driverChartcontainer {
-	width: 800px;
-	height: 400px;
+	margin: 10px;
+	width: 400px;
+	height: 200px;
 	background-color: #fff;
 	border-radius: 5px;
+}
+
+.add-driver-panel .driverChartcontainer2{
+	width: 400px;
+	height: 400px;
 }
 
 .cancel {
@@ -118,7 +131,7 @@ body {
 
 /* Modal speedMeasure */
 
-.add-speedMeasure-panel {
+.panel-section{
 	display: none;
 	justify-content: center;
 	align-items: center;
@@ -130,6 +143,24 @@ body {
 	height: 100%;
 	color: #fff;
 	background-image: linear-gradient(315deg, #4c4177 0%, #2a5370 74%);
+}
+
+.add-speedMeasure-panel h2 {
+	margin-bottom: 20px;
+}
+
+.speedChartcontainer {
+	width: 800px;
+	height: 400px;
+	background-color: #fff;
+}
+
+/* Map */
+
+.map-container {
+	width: 80%;
+	height: 600px;
+
 }
 
 /* -------------------------------- */
