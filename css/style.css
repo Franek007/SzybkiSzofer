@@ -26,7 +26,7 @@ body {
 
 .wrapper h1 {
 	font-size: 60px;
-	background-image: url(../);
+	/* background-image: url(../); */
 }
 
 .wrapper p {
@@ -76,7 +76,7 @@ body {
 
 /* Modal faster driver */
 
-.add-driver-panel{
+.add-driver-panel {
 	display: none;
 	justify-content: center;
 	align-items: center;
@@ -90,7 +90,7 @@ body {
 	background-image: linear-gradient(315deg, #4c4177 0%, #2a5370 74%);
 }
 
-.container2{
+.container2 {
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -109,7 +109,7 @@ body {
 	border-radius: 5px;
 }
 
-.add-driver-panel .driverChartcontainer2{
+.add-driver-panel .driverChartcontainer2 {
 	width: 400px;
 	height: 400px;
 }
@@ -131,7 +131,7 @@ body {
 
 /* Modal speedMeasure */
 
-.panel-section{
+.panel-section {
 	display: none;
 	justify-content: center;
 	align-items: center;
@@ -160,58 +160,6 @@ body {
 .map-container {
 	width: 80%;
 	height: 600px;
-
 }
 
 /* -------------------------------- */
-
-.add-transaction-panel h2.title {
-	margin-bottom: 0;
-}
-
-.add-transaction-panel label {
-	margin-top: 40px;
-	margin-bottom: 5px;
-	font-size: 26px;
-}
-
-.add-transaction-panel small {
-	margin-bottom: 15px;
-	font-style: italic;
-	color: #ddd;
-}
-
-.add-transaction-panel input,
-.add-transaction-panel select,
-.add-transaction-panel button {
-	padding: 10px 20px;
-	border: 1px solid black;
-	border-radius: 5px;
-}
-
-.add-transaction-panel input,
-.add-transaction-panel select,
-.add-transaction-panel option {
-	font-size: 18px;
-	width: 80%;
-}
-
-.add-transaction-panel .panel-buttons {
-	display: flex;
-	justify-content: center;
-	margin-top: 30px;
-}
-
-.add-transaction-panel button {
-	margin: 0 30px;
-	padding: 15px 40px;
-	font-size: 18px;
-	color: #fff;
-	border: 1px solid #fff;
-	background: none;
-	transition: background-color 0.3s;
-}
-
-.add-transaction-panel button:hover {
-	background-color: rgb(25, 27, 51);
-}
